@@ -8,15 +8,20 @@ export default function HomePage() {
   const { data: teams, error } = useSWR<Team[]>('/api/teams', fetcher);
 
   if (error) return <p className="p-8 text-red-600">Failed to load teams</p>;
-  if (!teams) return <p className="p-8">Loading teams…</p>;
+  if (!teams) return <p className="p-8 text-gray-500">Loading…</p>;
 
   return (
-    <main className="max-w-2xl mx-auto p-6">
-      <div className="bg-white shadow rounded-lg p-6">
-        <h1 className="text-2xl font-bold mb-4">Dream League Mini Teams</h1>
-        <ul className="divide-y">
-          {teams.map((t) => (
-            <li key={t.id} className="py-2">
+    <main className="flex justify-center p-8">
+      <div className="w-full max-w-2xl bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-10">
+        <h1 className="text-4xl font-extrabold mb-6 text-center">
+          Dream League 2025 Namibian Teams®
+        </h1>
+        <ul className="space-y-3">
+          {teams.map(t => (
+            <li
+              key={t.id}
+              className="py-2 px-4 bg-gray-50 dark:bg-gray-700 rounded-lg text-lg"
+            >
               {t.name}
             </li>
           ))}

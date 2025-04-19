@@ -32,30 +32,27 @@ export default function Record() {
     }
   };
 
-  if (!teams) return <p className="p-8">Loading teams…</p>;
+  if (!teams) return <p className="p-8 text-gray-500">Loading teams…</p>;
 
   return (
-    <main className="max-w-md mx-auto p-6 space-y-4">
-      {/* Refresh Teams Dropdown */}
-      <div className="flex justify-end">
-        <button
-          onClick={() => mutate('/api/teams')}
-          className="text-sm text-blue-600 hover:underline"
-        >
-          Refresh Teams
-        </button>
-      </div>
+    <main className="flex justify-center p-8">
+      <div className="w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 space-y-6">
+        <div className="flex justify-end">
+          <button
+            onClick={() => mutate('/api/teams')}
+            className="text-sm text-blue-600 hover:underline"
+          >
+            Refresh Teams
+          </button>
+        </div>
 
-      <div className="bg-white shadow rounded-lg p-6 space-y-4">
-        <h1 className="text-2xl font-bold">Record a Match</h1>
+        <h1 className="text-3xl font-bold text-center">Record a Match</h1>
 
-        {/* Form */}
-        <div className="space-y-2">
-          {/* Gameweek */}
-          <label className="block">
-            Gameweek:
+        <div className="space-y-4">
+          <label className="block text-lg font-medium">
+            Gameweek
             <select
-              className="mt-1 block w-full border rounded px-2 py-1"
+              className="mt-1 block w-full border rounded px-3 py-2"
               value={form.gameweek}
               onChange={e =>
                 setForm(f => ({ ...f, gameweek: +e.target.value }))
@@ -69,11 +66,10 @@ export default function Record() {
             </select>
           </label>
 
-          {/* Home Team */}
-          <label className="block">
-            Home Team:
+          <label className="block text-lg font-medium">
+            Home Team
             <select
-              className="mt-1 block w-full border rounded px-2 py-1"
+              className="mt-1 block w-full border rounded px-3 py-2"
               value={form.home_team}
               onChange={e =>
                 setForm(f => ({ ...f, home_team: +e.target.value }))
@@ -87,11 +83,10 @@ export default function Record() {
             </select>
           </label>
 
-          {/* Away Team */}
-          <label className="block">
-            Away Team:
+          <label className="block text-lg font-medium">
+            Away Team
             <select
-              className="mt-1 block w-full border rounded px-2 py-1"
+              className="mt-1 block w-full border rounded px-3 py-2"
               value={form.away_team}
               onChange={e =>
                 setForm(f => ({ ...f, away_team: +e.target.value }))
@@ -105,25 +100,25 @@ export default function Record() {
             </select>
           </label>
 
-          {/* Scores */}
-          <label className="block">
-            Home Score:
+          <label className="block text-lg font-medium">
+            Home Score
             <input
               type="number"
               min={0}
-              className="mt-1 block w-full border rounded px-2 py-1"
+              className="mt-1 block w-full border rounded px-3 py-2"
               value={form.home_score}
               onChange={e =>
                 setForm(f => ({ ...f, home_score: +e.target.value }))
               }
             />
           </label>
-          <label className="block">
-            Away Score:
+
+          <label className="block text-lg font-medium">
+            Away Score
             <input
               type="number"
               min={0}
-              className="mt-1 block w-full border rounded px-2 py-1"
+              className="mt-1 block w-full border rounded px-3 py-2"
               value={form.away_score}
               onChange={e =>
                 setForm(f => ({ ...f, away_score: +e.target.value }))
@@ -132,10 +127,9 @@ export default function Record() {
           </label>
         </div>
 
-        {/* Submit */}
         <button
           onClick={submit}
-          className="w-full bg-blue-600 text-white rounded px-4 py-2 hover:bg-blue-700"
+          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg px-6 py-3"
         >
           Save Result
         </button>
