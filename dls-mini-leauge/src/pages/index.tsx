@@ -14,7 +14,7 @@ export default function HomePage() {
     <main className="flex justify-center p-8">
       <div className="w-full max-w-2xl bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-10">
         <h1 className="text-4xl font-extrabold mb-6 text-center">
-          Dream League 2025 Namibian Teams®
+          Namibian premier leauge teams
         </h1>
         <ul className="space-y-3">
           {teams.map(t => (
